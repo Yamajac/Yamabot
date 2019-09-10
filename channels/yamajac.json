@@ -1,0 +1,6 @@
+{
+    "commands": {
+        "!ac": "The command {addcmd} has been added.",
+        "!dc": "The command {delcmd} has been deleted."
+    }
+}
