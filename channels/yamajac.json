@@ -1,6 +1,32 @@
 {
     "commands": {
-        "!ac": "The command {addcmd} has been added.",
-        "!dc": "The command {delcmd} has been deleted."
+        "!ac": {
+            "errors": {
+                "CommandExists": "The command {0} already exists, dummy."
+            },
+            "reply": "The command {addcmd} has been added."
+        },
+        "!dc": {
+            "errors": {
+                "CommandDoesntExist": "You don't bloody have that one you babbering fool.",
+                "IndexError": "You use it like {0} {1}, christ man."
+            },
+            "reply": "The command {delcmd} has been deleted."
+        },
+        "!ec": {
+            "reply": "The command {editcmd} has been changed."
+        },
+        "!errors": {
+            "reply": "The command {errorcmd} has been changed."
+        },
+        "!sr": {
+            "reply": "The song {sr} by {0} has been added to the queue."
+        },
+        "randtest": {
+            "reply": "{rand}0,5000"
+        },
+        "usertest": {
+            "reply": "{user}"
+        }
     }
 }
