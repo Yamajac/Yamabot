@@ -1,0 +1,7 @@
+{
+    "commands": {
+        "!ac": {
+            "reply": "The command {addcmd} has been added."
+        }
+    }
+}

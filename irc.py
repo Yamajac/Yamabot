@@ -18,7 +18,7 @@ class irc(object):
         client['sock'].send('PASS {0}\r\n'.format(client['password']).encode('utf-8'))
         client['sock'].send('NICK {0}\r\n'.format(client['nick']).encode('utf-8'))
         for channel in client['channels']:
-            client['sock'].send('JOIN #{0}\r\n'.format(channel).encode('utf-8'))
+            client['sock'].send('JOIN #{0}\r\n'.format(channel.strip()).encode('utf-8'))
         
     def set_terminator(self, terminator):
         self.terminator=terminator

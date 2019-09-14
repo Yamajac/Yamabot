@@ -1,5 +1,5 @@
 import urllib.request, urllib, json
-YTKEY = 'AIzaSyBKrVFy4U9pYPHiFlaL_sZB_ozxtig-ZYc'
+YTKEY = ''
 
 def GetData(URL, replacements):
     Request = urllib.request.Request((URL.format)(*replacements), headers={'User-Agent':'YamaBot /0.1', 

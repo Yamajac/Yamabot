@@ -5,27 +5,32 @@ class CommandExists(Exception):
     pass
 class CommandDoesntExist(Exception):
     pass
+class TooManysongs(Exception):
+    pass
     
 class channel(object):
     
     def __init__(self, channel):
         self.channel = channel
-        self.commandsLastUpdated = 0
+        self.LastUpdated = 0
         self.getCommands()
         
     def getCommands(self):
+        self.update()
+        return self.data['commands']
+    
+    def update(self):
         try:
-            if self.commandsLastUpdated == os.stat('channels/{0}.json'.format(self.channel)).st_mtime:
-                return self.data['commands']
-            print("Reloading commands for channel: {0}".format(self.channel))
+            if self.LastUpdated == os.stat('channels/{0}.json'.format(self.channel)).st_mtime:
+                return
+            print("Reloading channel: {0}".format(self.channel))
             with open('channels/{0}.json'.format(self.channel)) as channel_file:
                 self.data = json.load(channel_file)
         except FileNotFoundError:
             self.data = {'commands': {'!ac': {'reply': 'The command {addcmd} has been added.'}}}
             self.save_data() 
             
-        self.commandsLastUpdated = os.stat('channels/{0}.json'.format(self.channel)).st_mtime
-        return self.data['commands']
+        self.LastUpdated = os.stat('channels/{0}.json'.format(self.channel)).st_mtime
         
     def save_data(self):
         with open('channels/{0}.json'.format(self.channel), 'w') as channel_file:
@@ -70,3 +75,26 @@ class channel(object):
         del self.data['commands'][command]['errors'][error]
         self.save_data()   
     
+    def add_song(self, song, limit=False, cmd=False):
+        if 'songs' not in self.data:
+            self.data['songs'] = []
+        if limit and len(self.data['songs']) > limit:
+            raise TooManySongs({"message": "Too many songs in the queue", "cmd": cmd, "song": song, "limit": limit})
+        self.data['songs'].append(song)
+        self.save_data()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
