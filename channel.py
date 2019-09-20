@@ -42,6 +42,13 @@ class channel(object):
             return self.data['commands'][command]
         else:
             raise CommandDoesntExist({"message": "Command doesn't exist", "cmd": cmd, "command": command})
+            
+    def get_song(self, song, cmd=False):
+        if song in self.data['data']:
+            return self.data['data'][song]
+        else:
+            raise KeyError({"message": "{0} not found".format(song), "cmd": cmd, "song": song})
+    
     
     def add_command(self, command, reply, cmd=False):
         if command in self.data['commands']:

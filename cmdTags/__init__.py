@@ -7,7 +7,7 @@ def __load_all__(tags, dir="cmdTags"):
         if module.split('.')[-1]=='py' and module != 'tags.py':
             print("Loading module: ", module)
             #cmdTag = imp.load_module(module
-            cmdTag = importlib.import_module(dir+'.'+module.strip('.py'))
+            cmdTag = importlib.import_module(dir+'.'+module.replace('.py', ''))
             tag = cmdTag.tag
             tags[tag.getTag()] = tag
             

@@ -6,6 +6,9 @@
             },
             "reply": "The command {addcmd} has been added."
         },
+        "!cursong": {
+            "reply": "Now playing: {0} | {cursong}"
+        },
         "!dc": {
             "errors": {
                 "CommandDoesntExist": "You don't bloody have that one you babbering fool.",
@@ -19,6 +22,12 @@
         "!errors": {
             "reply": "The command {errorcmd} has been changed."
         },
+        "!nextsong": {
+            "reply": "Now playing: {0} | {nextsong}"
+        },
+        "!prevsong": {
+            "reply": "Now playing: {0} | {prevsong}"
+        },
         "!sr": {
             "reply": "The song {sr} by {0} has been added to the queue."
         },
@@ -28,5 +37,37 @@
         "usertest": {
             "reply": "{user}"
         }
-    }
+    },
+    "data": {
+        "current_song": {
+            "author": "billyjoelVEVO",
+            "id": "gxEPV4kolz0",
+            "title": "Billy Joel - Piano Man (Official Video)"
+        },
+        "previous_song": {
+            "author": "dannyBstyle",
+            "id": "4rJFgTNiRuQ",
+            "title": "Crypt of the Necrodancer OST - Deep Sea Bass (Coral Riff)"
+        }
+    },
+    "songs": [
+        {
+            "id": "gxEPV4kolz0",
+            "requester": "Yamajac",
+            "title": "Billy Joel - Piano Man (Official Video)",
+            "uploader": "billyjoelVEVO"
+        },
+        {
+            "id": "gxEPV4kolz0",
+            "requester": "Yamajac",
+            "title": "Billy Joel - Piano Man (Official Video)",
+            "uploader": "billyjoelVEVO"
+        },
+        {
+            "id": "gxEPV4kolz0",
+            "requester": "Yamajac",
+            "title": "Billy Joel - Piano Man (Official Video)",
+            "uploader": "billyjoelVEVO"
+        }
+    ]
 }
